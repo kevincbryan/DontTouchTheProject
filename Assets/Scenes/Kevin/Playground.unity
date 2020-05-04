@@ -553,5 +553,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8474390646401319283, guid: 190a56cb0eaeb3049b9cede759df3f36,
+        type: 3}
+      propertyPath: myTime.UseConstant
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474390646401319283, guid: 190a56cb0eaeb3049b9cede759df3f36,
+        type: 3}
+      propertyPath: maxTime.UseConstant
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474390646401319283, guid: 190a56cb0eaeb3049b9cede759df3f36,
+        type: 3}
+      propertyPath: gameEnd.UseConstant
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474390646401319283, guid: 190a56cb0eaeb3049b9cede759df3f36,
+        type: 3}
+      propertyPath: myTime.Variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 5140f41eddc22c74ba8082970810bb9c,
+        type: 2}
+    - target: {fileID: 8474390646401319283, guid: 190a56cb0eaeb3049b9cede759df3f36,
+        type: 3}
+      propertyPath: maxTime.Variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 274e3f262b3d32448b7de71496c5d65f,
+        type: 2}
+    - target: {fileID: 8474390646401319283, guid: 190a56cb0eaeb3049b9cede759df3f36,
+        type: 3}
+      propertyPath: gameEnd.Variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 626ffda0b0517814aa54fbe673007867,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 190a56cb0eaeb3049b9cede759df3f36, type: 3}

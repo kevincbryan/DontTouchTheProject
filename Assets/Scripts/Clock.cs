@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Clock : MonoBehaviour
 {
-    public FloatVariable myTime;
-    public FloatVariable maxTime;
-    public bool gameEnd = false;
+    public FloatReference myTime;
+    public FloatReference maxTime;
+    public BoolReference gameEnd;
     // Start is called before the first frame update
     void Start()
     {
         myTime.Value = 0;
+        gameEnd.Value = false;
+
     }
 
     // Update is called once per frame
@@ -20,7 +22,7 @@ public class Clock : MonoBehaviour
 
         if (myTime.Value > maxTime.Value)
         {
-            gameEnd = true;
+            gameEnd.Value = true;
         }
 
     }
