@@ -7,5 +7,7 @@ using UnityEngine.AI;
 public class Person : ScriptableObject
 {
     public NavMeshAgent agent;
-    public Sprite sprite;
+    public IntReference score;
+    public bool handEaten;
+    public IntReference timer;
 }
