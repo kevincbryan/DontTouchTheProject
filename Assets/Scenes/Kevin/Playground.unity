@@ -241,6 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 820337551}
   - component: {fileID: 820337552}
+  - component: {fileID: 820337553}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -283,6 +284,42 @@ MonoBehaviour:
   parent: {fileID: 2412713688491273492, guid: b111ca22edfe4694493dc6aeb6152c88, type: 3}
   zookeeper: {fileID: 5243552358186581140, guid: 4b555cc710e6d394dbf732348a74c45c,
     type: 3}
+--- !u!114 &820337553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820337550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63877672c34fad342b4e94ca9fda3875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numChildren:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  maxChildren:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  spawnDelay:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  disatisfaction:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  lowDis:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  highDis:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
 --- !u!1 &997952403
 GameObject:
   m_ObjectHideFlags: 0
