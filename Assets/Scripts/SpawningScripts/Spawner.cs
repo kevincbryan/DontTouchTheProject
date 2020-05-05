@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Spawn (Enemy.parent, 1);
+        //Spawn (Enemy.zookeeper, 0);
     }
 
     public void Spawn (Enemy mSpawn, int location)
