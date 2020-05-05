@@ -11,7 +11,7 @@ public class SpawnChildren : MonoBehaviour
     public float mMaxChildren;
     public IntReference disatisfaction;
     public IntReference maxDisat;
-    public float lerpableDisatisfaction;
+    private float lerpableDisatisfaction;
     //public IntReference lowDis;
     //public IntReference highDis;
     public Spawner mSpawner;
@@ -37,7 +37,7 @@ public class SpawnChildren : MonoBehaviour
 
         if (numChildren.Value < mMaxChildren && mTime >= spawnDelay.Value)
         {
-            //Debug.Log ("Calling Spawner");
+            //If not at my Max Children and past spawn delay, spawn child and reset time
             mSpawner.Spawn(Enemy.child, Random.Range (0, 2) );
             mTime = 0;
         }
