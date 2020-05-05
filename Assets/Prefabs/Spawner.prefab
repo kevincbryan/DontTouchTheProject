@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5636494982350399059}
   - component: {fileID: 5636494982350399052}
   - component: {fileID: 5636494982350399053}
+  - component: {fileID: 820337551}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -86,7 +87,40 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 1cefb9d01bf09d14d85b0aef3d2ff736, type: 2}
-  lerpableDisatisfaction: 0
+  mSpawner: {fileID: 5636494982350399052}
+--- !u!114 &820337551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636494982350399058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13809c7f390a54a47bdc3ce696bfc231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numAdults:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 1ba40769ac1b15443ae609d7afd482dc, type: 2}
+  maxAdults:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 85c9af8a00e8c5841908aa68ba4c4f6f, type: 2}
+  spawnDelay:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 50ed5c25f1d2fb243b9b18570c2cc318, type: 2}
+  mMaxAdults: 0
+  disatisfaction:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 39623a9d2d491bd4cbd6618650c89621, type: 2}
+  maxDisat:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 1cefb9d01bf09d14d85b0aef3d2ff736, type: 2}
   mSpawner: {fileID: 5636494982350399052}
 --- !u!1 &5636494983216871998
 GameObject:
