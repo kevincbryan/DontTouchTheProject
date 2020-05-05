@@ -274,7 +274,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 820337550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 154f48221df61fb4489e80826be3ca64, type: 3}
+  m_Script: {fileID: 11500000, guid: 4333073eb84734c4fb674d52a42d67d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnLoc:
@@ -297,29 +297,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numChildren:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: e9d85bff496ad2d48996a3217559de3a, type: 2}
   maxChildren:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: cc3a58c234ef648478959565472d7d88, type: 2}
   spawnDelay:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 50ed5c25f1d2fb243b9b18570c2cc318, type: 2}
+  mMaxChildren: 0
   disatisfaction:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
-  lowDis:
-    UseConstant: 1
+    Variable: {fileID: 11400000, guid: 39623a9d2d491bd4cbd6618650c89621, type: 2}
+  maxDisat:
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
-  highDis:
-    UseConstant: 1
-    ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 1cefb9d01bf09d14d85b0aef3d2ff736, type: 2}
+  lerpableDisatisfaction: 0
+  mSpawner: {fileID: 820337552}
 --- !u!1 &997952403
 GameObject:
   m_ObjectHideFlags: 0
