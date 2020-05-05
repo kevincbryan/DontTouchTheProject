@@ -5,85 +5,69 @@ using UnityEngine;
 public class AdultAI : MonoBehaviour
 {
     public Person agent;
-    Decision behavior;
+    Decision root;
     public IntReference dissatisfaction;
     public IntReference lowDissatisfaction;
     public IntReference highDissatisfaction;
     // Start is called before the first frame update
     void Start()
     {
-        
+        root = new dissatisfactionLevel(agent,
+                    new lowMedium(agent,
+                        new adultLow(agent),
+                        new adultMedium(agent)),
+                    new adultHigh(agent));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Decision currentDecision = root;
+        while (currentDecision != null)
+        {
+            currentDecision = currentDecision.makeDecision();
+        }
     }
 }
 
-
-class adultLow : Decision // condition
+class adultLow : Decision // a lot of adult
 {
-    IntReference low;
-    IntReference current;
+    Person agent;
     public adultLow() { }
-    public adultLow(IntReference low, IntReference current)
+    public adultLow(Person agent)
     {
-        this.low = low;
-        this.current = current;
+        this.agent = agent;
     }
-    public override Result execute(Person agent)
+    public Decision makeDecision()
     {
-        foreach (Decision child in childBehaviours)
-        {
-            if (current.Value < low.Value)
-                return Result.Success;
-        }
-        return Result.Failure;
+        return null;
     }
 }
 
-class adultMedium : Decision // condition
+class adultMedium : Decision // less adult
 {
-    IntReference low;
-    IntReference high;
-    IntReference current;
+    Person agent;
     public adultMedium() { }
-    public adultMedium(IntReference low, IntReference high, IntReference current)
+    public adultMedium(Person agent)
     {
-        this.low = low;
-        this.high = high;
-        this.current = current;
+        this.agent = agent;
     }
-    public override Result execute(Person agent)
+    public Decision makeDecision()
     {
-        foreach (Decision child in childBehaviours)
-        {
-            if (current.Value > low.Value && current.Value < high.Value)
-                return Result.Success;
-        }
-        return Result.Failure;
+        return null;
     }
 }
 
-class adultHigh : Decision // condition
+class adultHigh : Decision // little to no adults
 {
-    IntReference high;
-    IntReference current;
+    Person agent;
     public adultHigh() { }
-    public adultHigh(IntReference high, IntReference current)
+    public adultHigh(Person agent)
     {
-        this.high = high;
-        this.current = current;
+        this.agent = agent;
     }
-    public override Result execute(Person agent)
+    public Decision makeDecision()
     {
-        foreach (Decision child in childBehaviours)
-        {
-            if (current.Value > high.Value)
-                return Result.Success;
-        }
-        return Result.Failure;
+        return null;
     }
 }

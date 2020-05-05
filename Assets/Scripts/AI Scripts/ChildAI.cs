@@ -14,10 +14,11 @@ public class ChildAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        root = new dissatisfactionLevel(agent,
-                new childLow(agent),
-                new childMedium(agent),
-                new childHigh(agent));
+        root = new dissatisfactionLevel(agent, 
+                    new lowMedium(agent, 
+                        new childLow(agent), 
+                        new childMedium(agent)),
+                    new childHigh(agent));
     }
 
     // Update is called once per frame
@@ -31,18 +32,18 @@ public class ChildAI : MonoBehaviour
     }
 }
 
-class dissatisfactionLevel : Decision // question
+class dissatisfactionLevel : Decision // question // meter at or below high
 {
     Person agent;
     Decision lowMed;
-    Decision current;
+    Decision high;
 
     public dissatisfactionLevel() { }
-    public dissatisfactionLevel(Person agent, Decision lowMedium, Decision current)
+    public dissatisfactionLevel(Person agent, Decision lowMedium, Decision high)
     {
         this.agent = agent;
         lowMed = lowMedium;
-        this.current = current;
+        this.high = high;
     }
 
     public Decision makeDecision()
@@ -52,11 +53,32 @@ class dissatisfactionLevel : Decision // question
             return lowMed;
         }
         else
-            return current;
+            return high;
     }
 }
 
-class childLow : Decision // condition
+class lowMedium : Decision // question // medium or low
+{
+    Person agent;
+    Decision low;
+    Decision medium;
+    public lowMedium() { }
+    public lowMedium(Person agent, Decision low, Decision medium)
+    {
+        this.agent = agent;
+    }
+    public Decision makeDecision()
+    {
+        if (agent.dissatisfaction.Value > agent.lowDissatisfaction.Value && agent.lowDissatisfaction.Value < agent.highDissatisfaction.Value)
+        {
+            return medium;
+        }
+        else
+            return low;
+    }
+}
+
+class childLow : Decision // a lot of children
 {
     Person agent;
     public childLow() { }
@@ -70,7 +92,7 @@ class childLow : Decision // condition
     }
 }
 
-class childMedium : Decision // condition
+class childMedium : Decision // less children
 {
     Person agent;
     public childMedium() { }
@@ -84,7 +106,7 @@ class childMedium : Decision // condition
     }
 }
 
-class childHigh : Decision // condition
+class childHigh : Decision // little to no children
 {
     Person agent;
     public childHigh() { }

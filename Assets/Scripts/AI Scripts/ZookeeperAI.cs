@@ -5,106 +5,69 @@ using UnityEngine;
 public class ZookeeperAI : MonoBehaviour
 {
     public Person agent;
-    Decision behaviour;
+    Decision root;
     public IntReference dissatisfaction;
     public IntReference lowDissatisfaction;
     public IntReference highDissatisfaction;
     // Start is called before the first frame update
     void Start()
     {
-        behaviour = new zooLow(lowDissatisfaction, dissatisfaction);
+        root = new dissatisfactionLevel(agent,
+                    new lowMedium(agent,
+                        new zooLow(agent),
+                        new zooMedium(agent)),
+                    new zooHigh(agent));
     }
 
     // Update is called once per frame
     void Update()
     {
-        behaviour.execute(agent);
+        Decision currentDecision = root;
+        while (currentDecision != null)
+        {
+            currentDecision = currentDecision.makeDecision();
+        }
     }
 }
 
-class zooDissatisfaction
+class zooLow : Decision // no zookeeper
 {
-    Decision behaviour;
-    public IntReference current;
-    public IntReference low;
-    public IntReference high;
-    public zooDissatisfaction() { }
-
-    public zooDissatisfaction(Decision behaviour, IntReference low, IntReference high, IntReference current)
-    {
-        this.behaviour = behaviour;
-        this.low = low;
-        this.high = high;
-        this.current = current;
-    }
-
-    public void Set()
-    {
-
-    }
-}
-
-class zooLow : Decision // condition
-{
-    IntReference low;
-    IntReference current;
+    Person agent;
     public zooLow() { }
-    public zooLow(IntReference low, IntReference current)
+    public zooLow(Person agent)
     {
-        this.low = low;
-        this.current = current;
+        this.agent = agent;
     }
-    public override Result execute(Person agent)
+    public Decision makeDecision()
     {
-        foreach (Decision child in childBehaviours)
-        {
-            if (current.Value < low.Value)
-                return Result.Success;
-        }
-        return Result.Failure;
+        return null;
     }
 }
 
-class zooMedium : Decision // condition
+class zooMedium : Decision // zookeeper starts patroling
 {
-    IntReference low;
-    IntReference high;
-    IntReference current;
+    Person agent;
     public zooMedium() { }
-    public zooMedium(IntReference low, IntReference high, IntReference current)
+    public zooMedium(Person agent)
     {
-        this.low = low;
-        this.high = high;
-        this.current = current;
+        this.agent = agent;
     }
-    public override Result execute(Person agent)
+    public Decision makeDecision()
     {
-        foreach (Decision child in childBehaviours)
-        {
-            if (current.Value > low.Value && current.Value < high.Value)
-                return Result.Success;
-        }
-        return Result.Failure;
+        return null;
     }
 }
 
-class zooHigh : Decision // condition
+class zooHigh : Decision // more zookeeper
 {
-    IntReference high;
-    IntReference current;
+    Person agent;
     public zooHigh() { }
-    public zooHigh(IntReference high, IntReference current)
+    public zooHigh(Person agent)
     {
-        this.high = high;
-        this.current = current;
+        this.agent = agent;
     }
-    public override Result execute(Person agent)
+    public Decision makeDecision()
     {
-        foreach (Decision child in childBehaviours)
-        {
-            if (current.Value > high.Value)
-                return Result.Success;
-        }
-        return Result.Failure;
+        return null;
     }
 }
