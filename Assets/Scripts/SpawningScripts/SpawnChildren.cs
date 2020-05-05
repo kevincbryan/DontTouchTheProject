@@ -8,12 +8,12 @@ public class SpawnChildren : MonoBehaviour
     public IntReference maxChildren;
     public FloatReference spawnDelay;
     private float mTime;
-    private float mMaxChildren;
+    public float mMaxChildren;
     public IntReference disatisfaction;
     public IntReference maxDisat;
-    private float lerpableDisatisfaction;
-    public IntReference lowDis;
-    public IntReference highDis;
+    public float lerpableDisatisfaction;
+    //public IntReference lowDis;
+    //public IntReference highDis;
     public Spawner mSpawner;
     
 
@@ -27,11 +27,20 @@ public class SpawnChildren : MonoBehaviour
     void Update()
     {
         //Figuring out max Children
-        if (maxDisat.Value != 0)lerpableDisatisfaction = disatisfaction.Value / maxDisat.Value;
+        lerpableDisatisfaction = 1 - ((float)disatisfaction.Value / (float)maxDisat.Value);
         mMaxChildren = Mathf.Lerp(0, maxChildren.Value, lerpableDisatisfaction);
+        if (mMaxChildren < 2f) mMaxChildren = 2f;
 
+        //updating the time
+        mTime += Time.deltaTime;
+        
 
-        mTime = Time.deltaTime;
+        if (numChildren.Value < mMaxChildren && mTime >= spawnDelay.Value)
+        {
+            //Debug.Log ("Calling Spawner");
+            mSpawner.Spawn(Enemy.child, Random.Range (0, 2) );
+            mTime = 0;
+        }
         
     }
 }
