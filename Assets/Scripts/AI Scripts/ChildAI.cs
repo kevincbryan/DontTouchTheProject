@@ -2,42 +2,98 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Result { Success, Failure}
-public interface Behaviour
+public interface Decision
 {
-    Result execute(Person agent);
+    Decision makeDecision();
 }
 
 public class ChildAI : MonoBehaviour
 {
-    public IntReference dissatisfaction;
-    public IntReference lowDissatisfaction;
-    public IntReference highDissatisfaction;
     public Person agent;
-    Behaviour behavior;
+    Decision root;
     // Start is called before the first frame update
     void Start()
     {
-        
+        root = new dissatisfactionLevel(agent,
+                new childLow(agent),
+                new childMedium(agent),
+                new childHigh(agent));
     }
 
     // Update is called once per frame
     void Update()
     {
-        behavior.execute(agent);
+        Decision currentDecision = root;
+        while (currentDecision != null)
+        {
+            currentDecision = currentDecision.makeDecision();
+        }
     }
 }
 
-class childDissatisfaction : Behaviour
+class dissatisfactionLevel : Decision // question
 {
+    Person agent;
+    Decision lowMed;
+    Decision current;
 
-    public Result execute(Person agent)
+    public dissatisfactionLevel() { }
+    public dissatisfactionLevel(Person agent, Decision lowMedium, Decision current)
     {
+        this.agent = agent;
+        lowMed = lowMedium;
+        this.current = current;
+    }
 
-        if ()
+    public Decision makeDecision()
+    {
+        if (agent.dissatisfaction.Value < agent.lowDissatisfaction.Value)
         {
-
+            return lowMed;
         }
+        else
+            return current;
+    }
+}
 
+class childLow : Decision // condition
+{
+    Person agent;
+    public childLow() { }
+    public childLow(Person agent)
+    {
+        this.agent = agent;
+    }
+    public Decision makeDecision()
+    {
+        return null;
+    }
+}
+
+class childMedium : Decision // condition
+{
+    Person agent;
+    public childMedium() { }
+    public childMedium(Person agent)
+    {
+        this.agent = agent;
+    }
+    public Decision makeDecision()
+    {
+        return null;
+    }
+}
+
+class childHigh : Decision // condition
+{
+    Person agent;
+    public childHigh() { }
+    public childHigh(Person agent)
+    {
+        this.agent = agent;
+    }
+    public Decision makeDecision()
+    {
+        return null;
     }
 }

@@ -10,4 +10,7 @@ public class Person : ScriptableObject
     public IntReference score;
     public bool handEaten;
     public IntReference timer;
+    public IntReference dissatisfaction;
+    public IntReference lowDissatisfaction;
+    public IntReference highDissatisfaction;
 }
