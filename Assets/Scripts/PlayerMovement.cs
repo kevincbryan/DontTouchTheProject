@@ -11,9 +11,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject player;
     public bool movable = true;
     public bool isMoving;
-    private bool isJumping;
-    public float jumpAmount = 5f;
-    private float mTime;
 
     private Vector3 movement;
     public Animator animator;
@@ -22,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movement.y =  0;
+        
     }
 
     // Update is called once per frame
@@ -33,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.z = Input.GetAxisRaw("Vertical");
-            //movement.y = 0;
+            movement.y = 0;
             movement = movement.normalized;
         }
         else
@@ -43,17 +40,7 @@ public class PlayerMovement : MonoBehaviour
             movement.z = 0;
         }
 
-        if (movable && isJumping == false)
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                rb.AddForce(new Vector3(0, jumpAmount, 0), ForceMode.Impulse);
-                isJumping = true;
-                Invoke("Jump", 1f);
-            }
-        }
-
-        if (movement.x != 0 || movement.z != 0 || isJumping == true) // Checks if there is movement input
+        if (movement.x != 0 || movement.z != 0) // Checks if there is movement input
         {
             isMoving = true;
         }
@@ -62,8 +49,6 @@ public class PlayerMovement : MonoBehaviour
             isMoving = false;
         }
 
-
-        
         if (isMoving == true)
         {
             if (audioSource)
@@ -96,13 +81,4 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
-    void Jump()
-    {
-        Debug.Log ("jump is run");
-        isJumping = false;
-        
-    }
-
-  
 }
