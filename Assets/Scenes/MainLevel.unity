@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -972,26 +972,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 190a56cb0eaeb3049b9cede759df3f36, type: 3}
---- !u!1 &578062754 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3452698876176494325, guid: a152bc39ba05c25439c5573ee28db652,
-    type: 3}
-  m_PrefabInstance: {fileID: 1261132217}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &578062758
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578062754}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5551418225153903260, guid: a152bc39ba05c25439c5573ee28db652, type: 3}
 --- !u!1 &675325338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,13 +2097,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592430343}
-  m_LocalRotation: {x: 0.5690496, y: -0.27002513, z: 0.41974053, w: 0.6535189}
-  m_LocalPosition: {x: -0.76, y: 3.21, z: -1.62}
+  m_LocalRotation: {x: 0.46448314, y: -0.20394656, z: 0.45552304, w: 0.7315463}
+  m_LocalPosition: {x: -0.7600002, y: 3.21, z: -3.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1502235028}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 103.96301, y: -148.863, z: -90}
+  m_LocalEulerAnglesHint: {x: 120.073, y: -165.582, z: -107.83899}
 --- !u!108 &1592430345
 Light:
   m_ObjectHideFlags: 0
@@ -2137,8 +2117,8 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 5000
-  m_Range: 13.54023
-  m_SpotAngle: 30
+  m_Range: 14.857597
+  m_SpotAngle: 55.685993
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
