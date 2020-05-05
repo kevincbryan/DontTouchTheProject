@@ -66,6 +66,8 @@ class lowMedium : Decision // question // medium or low
     public lowMedium(Person agent, Decision low, Decision medium)
     {
         this.agent = agent;
+        this.low = low;
+        this.medium = medium;
     }
     public Decision makeDecision()
     {
